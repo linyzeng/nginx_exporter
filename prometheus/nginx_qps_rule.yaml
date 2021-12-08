@@ -11,6 +11,8 @@ spec:
     - name: qps
       rules:
       # host  域名级别qps
+      - record: job:nginx_request_duration_seconds:qps_by_host
+        expr: sum(rate(nginx_request_duration_seconds_count{}[3m])) by (host)
       - record: job:nginx_request_duration_seconds:qps_by_host_2XX
         expr: sum(rate(nginx_request_duration_seconds_count{status=~"2.."}[3m])) by (host)
       - record: job:nginx_request_duration_seconds:qps_by_host_4XX
@@ -19,6 +21,16 @@ spec:
         expr: sum(rate(nginx_request_duration_seconds_count{status=~"403"}[3m])) by (host)
       - record: job:nginx_request_duration_seconds:qps_by_host_5XX
         expr: sum(rate(nginx_request_duration_seconds_count{status=~"5.."}[3m])) by (host)
+
+      # host, upstream_host
+      - record: job:nginx_requests:qps_by_upstream_host
+        expr: sum(rate(nginx_requests{}[3m])) by (upstream_host, host)
+      - record: job:nginx_requests:qps_by_upstream_host_2XX
+        expr: sum(rate(nginx_requests{status=~"2.."}[3m])) by (upstream_host, host)
+      - record: job:nginx_requests:qps_by_upstream_host_4XX
+        expr: sum(rate(nginx_requests{status=~"40[^3]{1}|4[^0]{1}."}[3m])) by (upstream_host, host)
+      - record: job:nginx_requests:qps_by_upstream_host_5XX
+        expr: sum(rate(nginx_requests{status=~"5.."}[3m])) by (upstream_host, host)
       # host, instance
       - record: job:nginx_request_duration_seconds:qps_by_instance_host_2XX
         expr: sum(rate(nginx_request_duration_seconds_count{status=~"2.."}[3m])) by (instance, host)
