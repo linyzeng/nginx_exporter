@@ -13,11 +13,11 @@
     ]
   },
   "description": "Nginx,OpenResty HTTP API performance monitoring based on Prometheus LUA library",
-  "editable": false,
+  "editable": true,
   "gnetId": 10442,
   "graphTooltip": 0,
-  "id": 99,
-  "iteration": 1637803925137,
+  "id": 148,
+  "iteration": 1638948147397,
   "links": [
     {
       "asDropdown": true,
@@ -79,6 +79,326 @@
         "x": 0,
         "y": 0
       },
+      "id": 142,
+      "panels": [],
+      "title": "机房入口流量",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "prometheus",
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 4,
+        "w": 12,
+        "x": 0,
+        "y": 1
+      },
+      "hiddenSeries": false,
+      "id": 146,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "rightSide": false,
+        "show": false,
+        "sort": "current",
+        "sortDesc": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.0.3",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "Summary",
+          "transform": "negative-Y"
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "sum(job:nginx_request_duration_seconds:qps_by_instance_host_path_2XX{instance=~\"10.0.*\",host=~\"$host\"})",
+          "format": "time_series",
+          "hide": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "科兴-2XX",
+          "refId": "A"
+        },
+        {
+          "exemplar": true,
+          "expr": "sum(job:nginx_request_duration_seconds:qps_by_instance_host_status_method_4XX{instance=~\"10.0.*\",host=~\"$host\"})",
+          "format": "time_series",
+          "hide": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "科兴-4XX",
+          "refId": "B"
+        },
+        {
+          "exemplar": true,
+          "expr": "sum(job:nginx_request_duration_seconds:qps_by_instance_host_status_method_5XX{instance=~\"10.0.*\",host=~\"$host\"})",
+          "format": "time_series",
+          "hide": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "科兴-5XX",
+          "refId": "C"
+        },
+        {
+          "exemplar": true,
+          "expr": "sum(job:nginx_request_duration_seconds:qps_by_instance_host_path_2XX{instance=~\"10.2.*\",host=~\"$host\"})",
+          "format": "time_series",
+          "hide": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "龙岗-2XX",
+          "refId": "D"
+        },
+        {
+          "exemplar": true,
+          "expr": "sum(job:nginx_request_duration_seconds:qps_by_instance_host_status_method_4XX{instance=~\"10.2.*\",host=~\"$host\"})",
+          "format": "time_series",
+          "hide": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "龙岗-4XX",
+          "refId": "E"
+        },
+        {
+          "exemplar": true,
+          "expr": "sum(job:nginx_request_duration_seconds:qps_by_instance_host_status_method_5XX{instance=~\"10.2.*\",host=~\"$host\"})",
+          "format": "time_series",
+          "hide": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "龙岗--5XX",
+          "refId": "F"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "机房-状态码-QPS",
+      "tooltip": {
+        "shared": true,
+        "sort": 2,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": 1
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "prometheus",
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 4,
+        "w": 12,
+        "x": 12,
+        "y": 1
+      },
+      "hiddenSeries": false,
+      "id": 148,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "rightSide": false,
+        "show": false,
+        "sort": "current",
+        "sortDesc": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.0.3",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "Summary",
+          "transform": "negative-Y"
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "sum by (host) (job:nginx_request_duration_seconds:qps_by_instance_host_path_2XX{instance=~\"10.0.*\"})  > 0",
+          "format": "time_series",
+          "hide": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "科兴-2xx-{{host}}",
+          "refId": "A"
+        },
+        {
+          "exemplar": true,
+          "expr": "sum by (host)(job:nginx_request_duration_seconds:qps_by_instance_host_status_method_4XX{instance=~\"10.0.*\"})",
+          "format": "time_series",
+          "hide": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "科兴-4XX-{{host}}",
+          "refId": "B"
+        },
+        {
+          "exemplar": true,
+          "expr": "sum by (host)(job:nginx_request_duration_seconds:qps_by_instance_host_status_method_5XX{instance=~\"10.0.*\"})",
+          "format": "time_series",
+          "hide": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "科兴-5XX-{{host}}",
+          "refId": "C"
+        },
+        {
+          "exemplar": true,
+          "expr": "sum by (host) (job:nginx_request_duration_seconds:qps_by_instance_host_path_2XX{instance=~\"10.2.*\"})",
+          "format": "time_series",
+          "hide": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "龙岗-2XX-{{host}}",
+          "refId": "D"
+        },
+        {
+          "exemplar": true,
+          "expr": "sum by (host) (job:nginx_request_duration_seconds:qps_by_instance_host_status_method_4XX{instance=~\"10.2.*\"})",
+          "format": "time_series",
+          "hide": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "龙岗-4XX-{{host}}",
+          "refId": "E"
+        },
+        {
+          "exemplar": true,
+          "expr": "sum by (host)(job:nginx_request_duration_seconds:qps_by_instance_host_status_method_5XX{instance=~\"10.2.*\"})",
+          "format": "time_series",
+          "hide": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "龙岗--5XX-{{host}}",
+          "refId": "F"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "机房-域名-QPS",
+      "tooltip": {
+        "shared": true,
+        "sort": 2,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": 1
+      }
+    },
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 5
+      },
       "id": 126,
       "panels": [],
       "title": "Overall",
@@ -96,7 +416,7 @@
         "h": 4,
         "w": 8,
         "x": 0,
-        "y": 1
+        "y": 6
       },
       "hiddenSeries": false,
       "id": 140,
@@ -147,7 +467,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "错误码 3XX - 分钟",
+      "title": "3XX - 分钟",
       "tooltip": {
         "shared": true,
         "sort": 2,
@@ -197,7 +517,7 @@
         "h": 4,
         "w": 8,
         "x": 8,
-        "y": 1
+        "y": 6
       },
       "hiddenSeries": false,
       "id": 112,
@@ -300,7 +620,7 @@
         "h": 4,
         "w": 8,
         "x": 16,
-        "y": 1
+        "y": 6
       },
       "hiddenSeries": false,
       "id": 129,
@@ -419,7 +739,7 @@
         "h": 4,
         "w": 8,
         "x": 0,
-        "y": 5
+        "y": 10
       },
       "hiddenSeries": false,
       "id": 128,
@@ -520,7 +840,7 @@
         "h": 4,
         "w": 8,
         "x": 8,
-        "y": 5
+        "y": 10
       },
       "hiddenSeries": false,
       "id": 135,
@@ -623,7 +943,7 @@
         "h": 4,
         "w": 8,
         "x": 16,
-        "y": 5
+        "y": 10
       },
       "hiddenSeries": false,
       "id": 138,
@@ -726,7 +1046,7 @@
         "h": 4,
         "w": 8,
         "x": 0,
-        "y": 9
+        "y": 14
       },
       "hiddenSeries": false,
       "id": 139,
@@ -827,7 +1147,7 @@
         "h": 4,
         "w": 8,
         "x": 8,
-        "y": 9
+        "y": 14
       },
       "hiddenSeries": false,
       "id": 136,
@@ -925,7 +1245,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 13
+        "y": 18
       },
       "id": 122,
       "panels": [],
@@ -940,7 +1260,7 @@
         "h": 18,
         "w": 24,
         "x": 0,
-        "y": 14
+        "y": 19
       },
       "id": 116,
       "links": [],
@@ -998,7 +1318,7 @@
           "link": true,
           "linkTargetBlank": true,
           "linkTooltip": "点击进入详情",
-          "linkUrl": "/d/fDyKFe7Zk/api-host?var-host=${__cell_1}",
+          "linkUrl": "/d/kEDJm8pnz/nginx-host?var-host=${__cell_1}",
           "mappingType": 1,
           "pattern": "Value #A",
           "thresholds": [],
@@ -1020,7 +1340,7 @@
           "link": true,
           "linkTargetBlank": true,
           "linkTooltip": "点击进入详情",
-          "linkUrl": "/d/fDyKFe7Zk/api-host?var-host=${__cell_1}",
+          "linkUrl": "/d/kEDJm8pnz/nginx-host?var-host=${__cell_1}",
           "mappingType": 1,
           "pattern": "Value #B",
           "thresholds": [],
@@ -1042,7 +1362,7 @@
           "link": true,
           "linkTargetBlank": true,
           "linkTooltip": "点击进入详情",
-          "linkUrl": "/d/fDyKFe7Zk/api-host?var-host=${__cell_1}",
+          "linkUrl": "/d/kEDJm8pnz/nginx-host?var-host=${__cell_1}",
           "mappingType": 1,
           "pattern": "Value #C",
           "thresholds": [
@@ -1067,7 +1387,7 @@
           "link": true,
           "linkTargetBlank": true,
           "linkTooltip": "点击进入详情",
-          "linkUrl": "/d/fDyKFe7Zk/api-host?var-host=${__cell_1}",
+          "linkUrl": "/d/kEDJm8pnz/nginx-host?var-host=${__cell_1}",
           "mappingType": 1,
           "pattern": "Value #D",
           "thresholds": [
@@ -1092,7 +1412,7 @@
           "link": true,
           "linkTargetBlank": true,
           "linkTooltip": "点击进入详情",
-          "linkUrl": "/d/fDyKFe7Zk/api-host?var-host=${__cell_1}",
+          "linkUrl": "/d/kEDJm8pnz/nginx-host?var-host=${__cell_1}",
           "mappingType": 1,
           "pattern": "Value #E",
           "thresholds": [
@@ -1117,7 +1437,7 @@
           "link": true,
           "linkTargetBlank": true,
           "linkTooltip": "点击进入详情",
-          "linkUrl": "/d/fDyKFe7Zk/api-host?var-host=${__cell_1}",
+          "linkUrl": "/d/kEDJm8pnz/nginx-host?var-host=${__cell_1}",
           "mappingType": 1,
           "pattern": "host",
           "thresholds": [],
@@ -1202,9 +1522,13 @@
       {
         "allValue": null,
         "current": {
-          "selected": false,
-          "text": "All",
-          "value": "$__all"
+          "selected": true,
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
         },
         "datasource": "prometheus",
         "definition": "label_values(nginx_request_duration_seconds_count, host)",
@@ -1221,7 +1545,7 @@
           "refId": "prometheus-host-Variable-Query"
         },
         "refresh": 2,
-        "regex": "",
+        "regex": "/.*.jlpay.com/",
         "skipUrlSync": false,
         "sort": 0,
         "tagValuesQuery": "",
@@ -1232,7 +1556,7 @@
     ]
   },
   "time": {
-    "from": "now-1h",
+    "from": "now-5m",
     "to": "now"
   },
   "timepicker": {
@@ -1262,6 +1586,6 @@
   },
   "timezone": "",
   "title": "NGINX Dashboard",
-  "uid": "1bYmGFtnk",
-  "version": 8
+  "uid": "sE5x0lp7k",
+  "version": 10
 }
