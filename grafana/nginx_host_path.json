@@ -13,11 +13,11 @@
     ]
   },
   "description": "Nginx,OpenResty HTTP API performance monitoring based on Prometheus LUA library",
-  "editable": false,
+  "editable": true,
   "gnetId": 10445,
   "graphTooltip": 0,
-  "id": 102,
-  "iteration": 1637803816795,
+  "id": 146,
+  "iteration": 1638948300841,
   "links": [
     {
       "asDropdown": true,
@@ -1537,8 +1537,8 @@
         "allValue": null,
         "current": {
           "selected": false,
-          "text": "172.20.4.117",
-          "value": "172.20.4.117"
+          "text": "b-m.jlpay.com",
+          "value": "b-m.jlpay.com"
         },
         "datasource": "prometheus",
         "definition": "label_values(nginx_request_duration_seconds_count, host)",
@@ -1555,7 +1555,7 @@
           "refId": "prometheus-host-Variable-Query"
         },
         "refresh": 2,
-        "regex": "",
+        "regex": "/.*.jlpay.com/",
         "skipUrlSync": false,
         "sort": 0,
         "tagValuesQuery": "",
@@ -1567,8 +1567,8 @@
         "allValue": null,
         "current": {
           "selected": false,
-          "text": "/check",
-          "value": "/check"
+          "text": "/epass",
+          "value": "/epass"
         },
         "datasource": "prometheus",
         "definition": "label_values(nginx_request_duration_seconds_count{host=~\"$host\"}, path)",
@@ -1596,7 +1596,7 @@
     ]
   },
   "time": {
-    "from": "now-30m",
+    "from": "now-5m",
     "to": "now"
   },
   "timepicker": {
@@ -1626,6 +1626,6 @@
   },
   "timezone": "",
   "title": "NGINX  Host Path 详细",
-  "uid": "03nd7Ktnz",
-  "version": 8
+  "uid": "7WrV0_p7k",
+  "version": 3
 }
