@@ -58,6 +58,14 @@ local function metrics()
      end
   end
 
+  -- 验证host
+  -- ([a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,6}
+  if (string.match(ngx.var.host,"[%w.-]+") ~= ngx.var.host)
+  then 
+     return 
+  end
+
+  
   return {
     host = ngx.var.host or "-",
     -- 虚拟机没有 ns, ingress, svc
